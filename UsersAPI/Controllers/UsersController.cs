@@ -13,14 +13,14 @@ namespace UsersAPI.Controllers
 
         public static List<User> UserList = new List<User>();
 
-        // GET: api/<UsersController>
+        // GET: <UsersController>
         [HttpGet]
         public IEnumerable<User> GetAllUsers()
         {
             return UserList;
         }
 
-        // GET api/<UsersController>/5
+        // GET <UsersController>/5
         [HttpGet("{id}")]
         public IActionResult GetById(string id)
         {
@@ -32,7 +32,7 @@ namespace UsersAPI.Controllers
             return new OkObjectResult(user);
         }
 
-        // POST api/<UsersController>
+        // POST <UsersController>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult CreateUser([FromBody] User user)
@@ -47,7 +47,7 @@ namespace UsersAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
         }
 
-        // PUT api/<UsersController>/5
+        // PUT <UsersController>/5
         [HttpPut("{id}")]
         public IActionResult UpdateUser(string id, [FromBody] User updateUser)
         {
@@ -70,7 +70,7 @@ namespace UsersAPI.Controllers
             return new OkResult();
         }
 
-        // DELETE api/<UsersController>/5
+        // DELETE <UsersController>/5
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(string id)
         {
